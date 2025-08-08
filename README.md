@@ -70,6 +70,38 @@ Pipeline Steps:
         Compare internal policy docs (input by user) against regulatory embeddings.
 
         Highlight missing or conflicting clauses.
+Key ML Components
+Component	ML Technique	Purpose
+Text Parsing & Chunking	Rule-based NLP + transformers	Prepare documents for semantic search
+Embeddings	Sentence Transformers / OpenAI embeddings	Context-aware retrieval
+LLM Fine-tuning	Instruction tuning / LoRA	Domain specialization for compliance reasoning
+RAG (Retrieval-Augmented Generation)	Hybrid search + LLM	Cite exact clauses in answers
+Clause Classification	Zero-shot or fine-tuned classifier	Label clauses by compliance category
+Evaluation Metrics
+
+    Retrieval Quality: Recall@k, MRR (Mean Reciprocal Rank) for embedding search.
+
+    Summarization Quality: ROUGE, BERTScore, plus human review from compliance SMEs.
+
+    Gap Detection Accuracy: % of missing clauses correctly flagged.
+
+    LLM Response Accuracy: Human evaluation for correctness + explainability.
+
+Tech Stack
+
+    Data: Public compliance/legal datasets (GDPR, HIPAA, ISO standards, US CFR)
+
+    LLM: LLaMA-3, Mistral, or GPT fine-tuned via LoRA / PEFT
+
+    Embeddings: text-embedding-3-large, Instructor-XL, or all-MiniLM-L6-v2
+
+    Vector DB: pgvector, Weaviate, or Pinecone
+
+    Backend: FastAPI + LangChain for orchestration
+
+    Frontend: Streamlit / React dashboard for query & results visualization
+
+    Deployment: Docker + cloud (AWS/GCP/Azure)
 
 Why This is Capstone-Worthy
 
